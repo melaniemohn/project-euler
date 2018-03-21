@@ -11,10 +11,10 @@ function findNextPalindrome(start) {
 
 	let next = (firstHalf - 1) + '';
 	let array = string.length % 2 === 0 ? next.split('') : next.split('').slice(0, next.length - 1);
-	console.log('ARRAY:', array);
 	let reversed = array.reverse().join('');
 	let newPalindrome = next + reversed;
-	console.log(newPalindrome);
+	// console.log(newPalindrome);
+	return newPalindrome;
 }
 
 function findLargeFactors(product) {
@@ -30,6 +30,16 @@ function findLargeFactors(product) {
 }
 
 // console.log(findLargeFactors(998001));
+// console.log(findNextPalindrome(999999));
 // console.log(findNextPalindrome(99999));
 
-function findPalindromeProduct(start) { /* . . . */ }
+function findPalindromeProduct(start) {
+	if (findLargeFactors(start).length > 0) {
+		console.log(start);
+		return start;
+	} else {
+		return findPalindromeProduct(findNextPalindrome(start));
+	}
+}
+
+findPalindromeProduct(999999);
