@@ -23,5 +23,7 @@ function isPrime(number) {
 // no need to sort . . .
 let primeFactors = findFactors(600851475143).filter(factor => isPrime(factor));
 let largest = primeFactors[primeFactors.length - 1]
-console.log(primeFactors);
-console.log(largest);
+// console.log(primeFactors);
+// console.log(largest);
+
+module.exports = ({findFactors, isPrime});
